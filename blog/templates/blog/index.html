@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  My blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+  <section id="welcome">
+    <header>
+      <img src="{% static "blog/images/person.jpg" %}" alt="GR - The Author Og This BLog" />
+      <h2>GR'S BLOG</h2>
+    </header>
+    <p>After studying physics, Adam decided that his calling is system administration.</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+
+    <ul>
+      {% for post in posts %}
+      {% include "blog/includes/post.html" %}
+      {% endfor %}
+    </ul>
+  </section >
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>I love programming, I love to help others!</p>
+    <p>We help brands provide better customer service at scale by analyzing, 
+      enriching, and automating text communication!</p>
+  </section >
+{% endblock %}
